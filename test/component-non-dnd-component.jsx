@@ -18,7 +18,7 @@ import Component from '../src/components/hello-world/non-dnd-component/';
 
 describe('Non-DND component suite', function() {
 
-    it.only('Should render', function() {
+    it('Should render', function() {
         const React = this.React;
         const TestUtils = this.TestUtils;
 
