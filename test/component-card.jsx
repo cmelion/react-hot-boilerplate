@@ -24,7 +24,7 @@ describe('card component suite', function() {
 
         Component = proxyquire('../src/components/hello-world/sortable-simple/Card.js',
             {
-                './simple-subcomponent/': this.stubComponent('simple-subcomponent');
+                './simple-subcomponent/': this.stubComponent('simple-subcomponent')
             }
         );
 
