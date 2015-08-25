@@ -6,16 +6,39 @@ Error: Invariant Violation: Could not find the drag and drop manager in the cont
 
 Uses the minimal dev environment to enable live-editing React components from react-hot-boilerplate.
 
+
+Demonstrate: 
+```
+    npm run test
+``` 
+
+ comment out the stub to allow the test to pass.
+ 
+ 
+```
+
+    Component = proxyquire('../src/components/hello-world/sortable-simple/Card.js',
+    
+        {
+        
+            //'./simple-subcomponent/': this.stubComponent('simple-subcomponent')
+            
+        }
+        
+    );
+```
+
 ### Usage
 
 ```
-npm install
 
-npm run test
-
-npm start
-
-open http://localhost:3000
+    npm install
+    
+    npm run test
+    
+    npm start
+    
+    open http://localhost:3000
 ```
 
 Now edit `src/App.js`.  
