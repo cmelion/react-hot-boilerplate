@@ -28,7 +28,7 @@ Demonstrate:
     );
 ```
 
-### Usage
+### Usage (live editing)
 
 ```
 
