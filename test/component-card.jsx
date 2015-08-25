@@ -22,11 +22,9 @@ describe('card component suite', function() {
             moveCard: this.sinon.spy()
         };
 
-        let stub = this.stubComponent('simple-subcomponent');
-
         Component = proxyquire('../src/components/hello-world/sortable-simple/Card.js',
             {
-                './simple-subcomponent/': stub
+                './simple-subcomponent/': this.stubComponent('simple-subcomponent');
             }
         );
 
