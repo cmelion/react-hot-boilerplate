@@ -18,7 +18,7 @@ describe('App suite', function() {
 
         // check if link and name are correct
         const h1s = TestUtils.scryRenderedDOMComponentsWithTag(app, 'h1');
-        should(h1s.length).equal(1);
+        should(h1s.length).equal(2);
     });
 
     describe('Components', function() {
