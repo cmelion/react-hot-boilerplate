@@ -19,9 +19,11 @@ describe('Card component suite', function() {
             moveCard: this.sinon.spy()
         };
 
+        const SimpleSubComponent = this.stubComponent('simple-subcomponent', false);
+
         const Component = proxyquire('../src/components/hello-world/sortable-simple/Card.js',
             {
-                './simple-subcomponent/': this.stubComponent('simple-subcomponent', false)
+                './simple-subcomponent/': SimpleSubComponent
             }
         );
 
@@ -33,20 +35,12 @@ describe('Card component suite', function() {
             this.container
         );
 
-
-
         console.log(React.findDOMNode(comp).outerHTML);
 
-        const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'div');
-        should(divs.length).equal(2);
-
-        let subComponent = TestUtils.findRenderedDOMComponentWithClass(comp, 'simple-subcomponent');
-        should(subComponent.props.className).equal('simple-subcomponent');
+        const cards = TestUtils.scryRenderedComponentsWithType(comp, Component);
+        should(cards.length).equal(1);
 
     });
-
-
-
 
     describe('subcomponents', function() {
         //require('./component-review-item.jsx');
