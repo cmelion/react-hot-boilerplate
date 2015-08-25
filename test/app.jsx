@@ -22,6 +22,7 @@ describe('App suite', function() {
     });
 
     describe('Components', function() {
+        require('./component-non-dnd-component.jsx');
         require('./component-card.jsx');
     });
 });
