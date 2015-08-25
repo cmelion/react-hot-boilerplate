@@ -35,10 +35,11 @@ describe('Card component suite', function() {
             this.container
         );
 
-        console.log(React.findDOMNode(comp).outerHTML);
-
         const cards = TestUtils.scryRenderedComponentsWithType(comp, Component);
         should(cards.length).equal(1);
+
+        const subComponent = React.findDOMNode(comp).querySelectorAll('.simple-subcomponent');
+        should(subComponent.length).equal(1);
 
     });
 

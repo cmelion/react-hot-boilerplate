@@ -25,7 +25,6 @@ describe('Non-DND component suite', function() {
             this.container
         );
 
-        console.log(React.findDOMNode(comp).outerHTML);
         const headings = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'h1');
         should(headings.length).equal(1);
 
