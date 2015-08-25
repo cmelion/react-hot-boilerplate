@@ -13,40 +13,39 @@
 import should from './helpers';
 import proxyquire from 'proxyquire';
 
+// import component
+import Component from '../src/components/hello-world/non-dnd-component/';
+
 describe('Non-DND component suite', function() {
-    var Component, React, TestUtils;
 
-    proxyquire.noCallThru();
+    it.only('Should render', function() {
+        const React = this.React;
+        const TestUtils = this.TestUtils;
 
-    //Stub context and components before we get started
-    before(function() {
-        React = this.React;
-        TestUtils = this.TestUtils;
-        this.stubContext(this.Stub);
-        Component = proxyquire('../src/components/hello-world/non-dnd-component/',
+        const Component = proxyquire('../src/components/hello-world/non-dnd-component/',
             {
-                './simple-subcomponent/': this.Stub
+                './simple-subcomponent/': this.stubComponent('simple-subcomponent', true)
             }
         );
-        this.OriginalComponent = Component;
-    });
 
-    it('Should render', function() {
-
-        let defaultProps = {
-
-        };
-        let ComponentWithProps = this.wrapInTestContext(Component, React, defaultProps );
         // render
         const comp = TestUtils.renderIntoDocument(
-            <ComponentWithProps />,
+            <Component />,
             this.container
         );
 
+        console.log(React.findDOMNode(comp).outerHTML);
+        const headings = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'h1');
+        should(headings.length).equal(1);
+
         const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'div');
-        should(divs.length).equal(3);
+        should(divs.length).equal(2);
+
+        let subComponent = TestUtils.findRenderedDOMComponentWithClass(comp, 'simple-subcomponent');
+        should(subComponent.props.className).equal('simple-subcomponent');
 
     });
+
 
 
 

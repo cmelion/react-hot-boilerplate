@@ -2,7 +2,7 @@
 // import helpers
 import should from './helpers';
 
-// import page
+// import App
 import App from '../src/App.js';
 
 describe('App suite', function() {
