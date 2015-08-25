@@ -1,13 +1,20 @@
-react-hot-boilerplate
-=====================
+React-DND-Proxyquire-Invariant-Violation
+========================================
+Test case for reproducing the Invariant Violation error when using proxyquire with a react-DND context.
 
-The minimal dev environment to enable live-editing React components.
+Error: Invariant Violation: Could not find the drag and drop manager in the context of Card. Make sure to wrap the top-level component of your app with DragDropContext. Read more: http://gaearon.github.io/react-dnd/docs-troubleshooting.html#could-not-find-the-drag-and-drop-manager-in-the-context
+
+Uses the minimal dev environment to enable live-editing React components from react-hot-boilerplate.
 
 ### Usage
 
 ```
 npm install
+
+npm run test
+
 npm start
+
 open http://localhost:3000
 ```
 
