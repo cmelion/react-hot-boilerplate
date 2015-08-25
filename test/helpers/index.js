@@ -102,7 +102,7 @@ before(function() {
 
     this.Stub['@global'] = true; // this might not be needed in your case, refer to proxyquire docs
 
-    this.stubComponent = function(className) {
+    this.stubComponent = function(className, global) {
         // mock react component
         var stub = React.createClass({
             render() {
@@ -110,7 +110,9 @@ before(function() {
             }
         });
 
-        stub['@global'] = true; // this might not be needed in your case, refer to proxyquire docs
+        if (global) {
+            stub['@global'] = true; // this might not be needed in your case, refer to proxyquire docs
+        }
         return  stub;
     };
 
